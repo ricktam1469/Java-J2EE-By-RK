@@ -1,0 +1,20 @@
+SMAP
+ball_jsp.java
+JSP
+*S JSP
+*F
++ 0 ball.jsp
+ball.jsp
++ 1 footer.html
+footer.html
+*L
+1,2:52
+3,3:54,3
+6,34:63
+39:11
+39:97
+42,10:100
+51,2:110
+1#1,110:112
+53#0,5:221
+*E

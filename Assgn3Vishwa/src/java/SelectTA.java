@@ -38,8 +38,13 @@ public class SelectTA extends HttpServlet {
     
           
     
-   Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
- Connection con=DriverManager.getConnection("jdbc:odbc:vishwaDSN");
+  // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+ //Connection con=DriverManager.getConnection("jdbc:odbc:vishwaDSN");
+ Class.forName("com.mysql.jdbc.Driver");  
+  
+Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/test","root","vishav12345");  
+  
 		Statement st=con.createStatement();
 		 ResultSet rs=st.executeQuery("select * from TA");
       while(rs.next())
@@ -47,13 +52,17 @@ public class SelectTA extends HttpServlet {
 
 if(rs.getString(3).equals("PhD"))
 {
-    out.print("rs.getString(1)");
+    out.println(rs.getString(1));
+    out.println(rs.getString(2));
+    out.println(rs.getString(4));
+    
+    
 }
 else if(rs.getString(3).equals("PG")){
-    out.print("rs.getString(1)");
+    out.println(rs.getString(1));
 }
 else{
-    out.print("rs.getString(1)");
+    out.println(rs.getString(1));
 }
 }
   }

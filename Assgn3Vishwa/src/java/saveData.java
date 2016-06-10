@@ -43,29 +43,16 @@ public class saveData extends HttpServlet {
 //res.addCookie(c1);
 //out.println(uname+pass);
 
-Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-Connection con=DriverManager.getConnection("jdbc:odbc:vishwaDSN");
+//Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+//Connection con=DriverManager.getConnection("jdbc:odbc:vishwaDSN");
+Class.forName("com.mysql.jdbc.Driver");  
+  
+Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/test","root","vishav12345");  
+  
 Statement st=con.createStatement();
 
-//String s1="select * from login where uname='"+uname+"' and pass='" +pass+"'";
-//out.println(s1);
-
-String sql = "CREATE TABLE TA" +
-                   " (name VARCHAR(255), " + 
-        "roll INTEGER not NULL, "+            
-        "prog VARCHAR(255), " + 
-                   " pref1 VARCHAR(255), " + 
-        "cgpa1 VARCHAR(255), " + 
-        " pref2 VARCHAR(255), " + 
-        "cgpa2 VARCHAR(255), " + 
-        " pref3 VARCHAR(255), " + 
-        "cgpa3 VARCHAR(255), " + 
-        " pref4 VARCHAR(255), " + 
-        "cgpa4 VARCHAR(255), " + 
-                   " PRIMARY KEY ( roll ))"; 
-
-      st.execute(sql);
-      
+    
       String name=request.getParameter("name");
       String roll=request.getParameter("rn");
       String pgr=request.getParameter("pgr");
@@ -78,9 +65,9 @@ String sql = "CREATE TABLE TA" +
       String cgpa3=request.getParameter("cgpa3");
       String cgpa4=request.getParameter("cgpa4");
       
-      st.execute("insert into TA values("+name+","+roll+","+pgr+","+pref1+","+cgpa1+","+pref2+","+cgpa2+","+pref3+","+cgpa3+","+pref4+","+cgpa4+")"); // insert first row into the 
+      st.execute("insert into TA values('"+name+"','"+roll+"','"+pgr+"','"+pref1+"','"+cgpa1+"','"+pref2+"','"+cgpa2+"','"+pref3+"','"+cgpa3+"','"+pref4+"','"+cgpa4+"')"); // insert first row into the 
 
-      
+     response.sendRedirect("selectTA.jsp");
      
 }
 catch(Exception e)

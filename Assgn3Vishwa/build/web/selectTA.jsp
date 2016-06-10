@@ -14,36 +14,8 @@
     </head>
     <form action="select">
        Select Subject:  <input type="text" name="sub" placeholder="sub" />
- <input type="Select TA" name="Submit"/><br>
+ <input type="submit" name="select TA"/><br>
  </form>
-       <%!String s;%>
-    <%
-  
- try{ 
-    
-          
-    
-   Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
- Connection con=DriverManager.getConnection("jdbc:odbc:vishwaDSN");
-		Statement st=con.createStatement();
-		 ResultSet rs=st.executeQuery("select * from TA");
-      while(rs.next())
-{
-
-if(rs.getString(3).equals("PhD"))
-{
-    
-}
-else if(rs.getString(3).equals("PG")){
-    
-}
-else{
-    
-}
-}
-  }
-catch(Exception e){}
-
-%>
+       
     </body>
 </html>
